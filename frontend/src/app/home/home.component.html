@@ -2,12 +2,12 @@
 <main>
     <table>
         <tr>
-            <td><input type="search" placeholder="Search for a country..."></td>
+            <td><input type="search" placeholder="Search for a country..." #countrySearch (input)="searchedCountry(countrySearch.value)"></td>
             <td>
-                <input list="regions" name="region" id="region" placeholder="Filter by region">
+                <input list="regions" name="region" #region (change)="selectedRegion(region.value)" placeholder="Filter by region">
                 <datalist id="regions">
                     <option value="Africa">
-                    <option value="America">
+                    <option value="Americas">
                     <option value="Asia">
                     <option value="Europe">
                     <option value="Oceania">
@@ -15,4 +15,15 @@
             </td>
         </tr>
     </table>
+    <div class="countries-list">
+        <div *ngFor="let country of displayCountries">
+            <div class="country-tile">
+                <img src={{country.flag}} alt="{{country.name + '-flag'}}"> 
+                <h4>{{country.name}}</h4>
+                <b>Population: </b><span>{{country.population}}</span><br>
+                <b>Region: </b><span>{{country.region}}</span><br>
+                <b>Capital: </b><span>{{country.capital}}</span><br>
+            </div>
+        </div>
+    </div>
 </main>

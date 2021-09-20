@@ -1,5 +1,5 @@
 main {
-    height: 93vh;
+    min-height: 93vh;
     padding: 3vh 5vw;
     box-sizing: content-box;
     background-color: hsl(0, 0%, 98%);
@@ -31,4 +31,41 @@ tr td:nth-child(1) input {
 tr td:nth-child(2) {
     float: right;
     // padding-right: 5vw;
+}
+
+.countries-list {
+    padding: 3vh 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.country-tile {
+    height: 330px;
+    width: 250px;
+    margin: 4vh 2vw;
+    border-radius: 5px;
+    background-color: white;
+
+    img {
+        width: 250px;
+        height: 170px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    h4 {
+        margin: 2vh;
+    }
+
+    b {
+        margin-left: 2vh;
+        font-size: 13px;
+    }
+    span {
+        font-size: 13px;
+    }
 }

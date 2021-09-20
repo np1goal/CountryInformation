@@ -11,4 +11,12 @@ export class CountryApiService {
   public getCountryInfo() {
     return this.http.get('https://restcountries.eu/rest/v2/all')
   }
+
+  public getRegionCountry(region: string) {
+    return this.http.get('https://restcountries.eu/rest/v2/region/'+region)
+  }
+
+  public getSearchedCountry(value: string) {
+    return this.http.get('https://restcountries.eu/rest/v2/name/'+value)
+  }
 }
