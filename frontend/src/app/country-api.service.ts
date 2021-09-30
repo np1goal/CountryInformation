@@ -9,14 +9,22 @@ export class CountryApiService {
   constructor(private http: HttpClient) { }
 
   public getCountryInfo() {
-    return this.http.get('https://restcountries.eu/rest/v2/all')
+    return this.http.get('https://restcountries.com/v2/all')
   }
 
   public getRegionCountry(region: string) {
-    return this.http.get('https://restcountries.eu/rest/v2/region/'+region)
+    return this.http.get('https://restcountries.com/v2/continent/'+region)
   }
 
   public getSearchedCountry(value: string) {
-    return this.http.get('https://restcountries.eu/rest/v2/name/'+value)
+    return this.http.get('https://restcountries.com/v2/name/'+value)
+  }
+
+  public getOneCountryInfo(country: any) {
+    return this.http.get('https://restcountries.com/v2/name/'+ country +'?fullText=true')
+  }
+
+  public getCountryInfoCode(codes: any) {
+    return this.http.get('https://restcountries.com/v3.1/alpha?codes='+ codes)
   }
 }

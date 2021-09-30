@@ -21,11 +21,17 @@ export class HomeComponent implements OnInit {
 
   selectedRegion(region: string) {
     console.log(region)
-    this.countryService.getRegionCountry(region).subscribe((res) => this.displayCountries = res)
+    this.countryService.getRegionCountry(region).subscribe((res) => {
+      this.displayCountries = res
+      console.log(this.displayCountries)
+    })
   }
 
   searchedCountry(value: string) {
     console.log(value)
-    this.countryService.getSearchedCountry(value).subscribe((res) => this.displayCountries = res)
+    this.countryService.getSearchedCountry(value).subscribe((res) => {
+      this.displayCountries = res
+      console.log(this.displayCountries)
+    })
   }
 }

@@ -1,1 +1,23 @@
-<p>country-info works!</p>
+<app-header></app-header>
+<div class="go-back"><button routerLink="/">&#8592; Back</button></div>
+<div class="country">
+    <div class="country-flag"><img src="{{countryInfo[0]['flag'] ? countryInfo[0]['flag'] :  countryInfo[0]['flags'][1]}}"></div>
+    <div class="country-information">
+        <h1 class="country-name">{{countryInfo[0]['name'] ? countryInfo[0]['name'] : 'N/A'}}</h1>
+        <div class="country-info-table">
+            <dl>
+                <dt><b class="country-info-title">Native Name:</b>&nbsp;&nbsp;{{countryInfo[0]['nativeName'] ? countryInfo[0]['nativeName'] : 'N/A'}}</dt>
+                <dt><b class="country-info-title">Population:</b>&nbsp;&nbsp;{{countryInfo[0]['population'] ? countryInfo[0]['population'] : 'N/A'}}</dt>
+                <dt><b class="country-info-title">Region:</b>&nbsp;&nbsp;{{countryInfo[0]['region'] ? countryInfo[0]['region'] : 'N/A'}}</dt>
+                <dt><b class="country-info-title">Sub Region:</b>&nbsp;&nbsp;{{countryInfo[0]['subregion'] ? countryInfo[0]['subregion'] : 'N/A'}}</dt>
+                <dt><b class="country-info-title">Capital:</b>&nbsp;&nbsp;{{countryInfo[0]['capital'] ? countryInfo[0]['capital'] : 'N/A'}}</dt>
+            </dl>
+            <dl>
+                <dt><b class="country-info-title">Top Level Domain:</b>&nbsp;&nbsp;{{countryInfo[0]['topLevelDomain'] ? countryInfo[0]['topLevelDomain'][0] : 'N/A'}}</dt>
+                <dt><b class="country-info-title">Currency:</b>&nbsp;&nbsp;{{countryInfo[0]['currencies'] ? countryInfo[0]['currencies'][0].name : 'N/A'}}</dt>
+                <dt><b class="country-info-title">Languages:</b>&nbsp;&nbsp;<span *ngFor = "let language of countryInfo[0]['languages'];">{{language.name}} | </span></dt>
+            </dl>
+        </div>
+        <div id="border-countries"><b class="country-info-title">Border Countries:</b>&nbsp;&nbsp;</div>
+    </div>
+</div>

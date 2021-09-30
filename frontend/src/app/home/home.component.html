@@ -1,23 +1,19 @@
 <app-header></app-header>
 <main>
-    <table>
-        <tr>
-            <td><input type="search" placeholder="Search for a country..." #countrySearch (input)="searchedCountry(countrySearch.value)"></td>
-            <td>
-                <input list="regions" name="region" #region (change)="selectedRegion(region.value)" placeholder="Filter by region">
-                <datalist id="regions">
-                    <option value="Africa">
-                    <option value="Americas">
-                    <option value="Asia">
-                    <option value="Europe">
-                    <option value="Oceania">
-                </datalist>
-            </td>
-        </tr>
-    </table>
+    <div class="input-div">
+        <input type="search" placeholder="Search for a country..." #countrySearch (input)="searchedCountry(countrySearch.value)">
+        <input list="regions" name="region" #region (change)="selectedRegion(region.value)" placeholder="Filter by region">
+        <datalist id="regions">
+            <option value="Africa">
+            <option value="Americas">
+            <option value="Asia">
+            <option value="Europe">
+            <option value="Oceania">
+        </datalist>
+    </div>
     <div class="countries-list">
         <div *ngFor="let country of displayCountries">
-            <div class="country-tile">
+            <div class="country-tile" routerLink="country/{{country.name}}">
                 <img src={{country.flag}} alt="{{country.name + '-flag'}}"> 
                 <h4>{{country.name}}</h4>
                 <b>Population: </b><span>{{country.population}}</span><br>
